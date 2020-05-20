@@ -1,0 +1,63 @@
+/*
+- Most popular games
+- Upcoming games
+- New recent games
+- Query Games
+- Game details
+- Genres 
+- Platforms
+- Publishers
+- Maybe get links to games examples on the alst 3 (genre, platforms, publishers) which will then get you to the game detail
+*/
+
+//Base URL
+const base_url = "https://api.rawg.io/api/";
+
+//Getting the date to get the popular, upcoming and recent games
+const currentYear = new Date().getFullYear();
+const getCurrentMonth = function () {
+  const month = new Date().getMonth() + 1;
+  if (month < 10) {
+    return `0${month}`;
+  } else {
+    return month;
+  }
+};
+const currentMonth = getCurrentMonth();
+const currentDay = new Date().getDate();
+const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
+const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
+
+//Popular games
+const popular_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+
+//Upcoming games
+const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+
+//Recently released
+const new_games = `$games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
+
+//Searh Games
+const query_games = "games?search=";
+
+//Genres
+const game_genres = "genres/"
+
+//Platforms
+const game_platforms = "platforms/"
+
+//Publishers
+const game_publishers = "publishers/?page_size=20"
+
+//GETTERS
+export const getPopularGames = () => `${ base_url }${ popular_games }`;
+export const getUpcomingGames = () => `${ base_url }${ upcoming_games }`;
+export const getNewGames = () => `${ base_url }${ new_games }`;
+export const searchGame = game_name => `${ base_url }${ query_games }${ game_name }`;
+export const getGameGenres = () => `${ base_url }${ game_genres }`;
+export const getSpecificGenre = genre_name => `${ base_url }${ game_genres }${genre_name}`;
+export const getGamePlatforms = () => `${ base_url }${ game_platforms }`;
+export const getSpecificPlatform = platform_id => `${ base_url }${ game_platforms }${ platform_id }`;
+export const getGamePublishers = () => `${ base_url }${ game_publishers }`;
+export const getSpecificPublisher = publisher_id => `${ base_url }${ game_publishers }${ publisher_id }`;
