@@ -41,6 +41,9 @@ const new_games = `$games?dates=${lastYear},${currentDate}&ordering=-released&pa
 //Searh Games
 const query_games = "games?search=";
 
+//Game Details
+const game_details = "games/";
+
 //Genres
 const game_genres = "genres/"
 
@@ -50,14 +53,15 @@ const game_platforms = "platforms/"
 //Publishers
 const game_publishers = "publishers/?page_size=20"
 
-//GETTERS
-export const getPopularGames = () => `${ base_url }${ popular_games }`;
-export const getUpcomingGames = () => `${ base_url }${ upcoming_games }`;
-export const getNewGames = () => `${ base_url }${ new_games }`;
-export const searchGame = game_name => `${ base_url }${ query_games }${ game_name }`;
-export const getGameGenres = () => `${ base_url }${ game_genres }`;
-export const getSpecificGenre = genre_name => `${ base_url }${ game_genres }${genre_name}`;
-export const getGamePlatforms = () => `${ base_url }${ game_platforms }`;
-export const getSpecificPlatform = platform_id => `${ base_url }${ game_platforms }${ platform_id }`;
-export const getGamePublishers = () => `${ base_url }${ game_publishers }`;
-export const getSpecificPublisher = publisher_id => `${ base_url }${ game_publishers }${ publisher_id }`;
+//Routes
+export const popularGamesGet = () => `${ base_url }${ popular_games }`;
+export const upcomingGamesGet = () => `${ base_url }${ upcoming_games }`;
+export const newGamesGet = () => `${ base_url }${ new_games }`;
+export const searchGameGet = game_name => `${ base_url }${ query_games }${ game_name }`;
+export const gameDetailsGet = game_id => `${ base_url }${ game_details }${ game_id }`;
+export const gameGenresGet = () => `${ base_url }${ game_genres }`;
+export const specificGenreGet = genre_name => `${ base_url }${ game_genres }${genre_name}`;
+export const gamePlatformsGet = () => `${ base_url }${ game_platforms }`;
+export const specificPlatformGet = platform_id => `${ base_url }${ game_platforms }${ platform_id }`;
+export const gamePublishersGet = () => `${ base_url }${ game_publishers }`;
+export const specificPublisherGet = publisher_id => `${ base_url }${ game_publishers }${ publisher_id }`;
