@@ -36,7 +36,7 @@ const popular_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&p
 const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
 
 //Recently released
-const new_games = `$games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
+const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
 
 //Searh Games
 const query_games = "games?search=";

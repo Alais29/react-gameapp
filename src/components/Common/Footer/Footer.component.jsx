@@ -1,7 +1,8 @@
 import React from 'react';
+import './Footer.styles.scss'
 
 const Footer = () => (
-  <footer>This is the footer</footer>
+  <footer className="text-center"> {new Date().getFullYear()} - &copy; Alfonsina Lizardo</footer>
 )
- 
+
 export default Footer;

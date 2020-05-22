@@ -1,0 +1,31 @@
+.card {
+  background-color: #353535!important;
+  margin: 1rem 0;
+  display: flex;
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  &-game-image {
+    min-width: 100px;
+    min-height: 120px;
+  }
+  &-game-content{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-game-platforms {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &-game-platform {
+    padding: 0 0.2rem;
+  }
+  .platform-logo {
+    height: 20px;
+  }
+}
+
