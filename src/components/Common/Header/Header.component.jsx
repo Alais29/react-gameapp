@@ -1,7 +1,10 @@
 import React from 'react';
+import './Header.styles.scss';
 
 const Header = () => (
-  <h1>Game App</h1>
+  <header>
+    <h1>Game App</h1>
+  </header>
 )
  
 export default Header;

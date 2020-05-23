@@ -1,21 +1,30 @@
-import React, {Fragment, useContext} from 'react';
+import React, { Fragment, useContext } from "react";
 import { GameDetailsContext } from "./../../context/GameDetailsContext";
-import ProgressBar from './../../components/Common/ProgressBar/ProgressBar.component';
+import ProgressBar from "./../../components/Common/ProgressBar/ProgressBar.component";
+import Details from "./../../components/Games/Details/Details.component";
 
 const GameDetails = () => {
-  const {doneFetchGameDetails, gameDetails} = useContext(GameDetailsContext);
-  return ( 
+  const {
+    doneFetchGameDetails,
+    gameDetails,
+    doneFetchGameScreenshots,
+    gameScreenshots,
+  } = useContext(GameDetailsContext);
+  return (
     <Fragment>
-      {
-        doneFetchGameDetails && gameDetails ?
-          <Fragment>
-            <h1>{gameDetails.name}</h1> 
-            <p>{gameDetails.description_raw}</p>
-          </Fragment>
-        : <ProgressBar />
-      }
+      {doneFetchGameDetails && gameDetails ? (
+        <Fragment>
+          <Details
+            gameDetails={gameDetails}
+            gameScreenshots={gameScreenshots}
+            doneFetchGameScreenshots={doneFetchGameScreenshots}
+          />
+        </Fragment>
+      ) : (
+        <ProgressBar />
+      )}
     </Fragment>
   );
-}
- 
+};
+
 export default GameDetails;

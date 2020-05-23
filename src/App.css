@@ -15,3 +15,7 @@ body {
 .text-center {
   text-align: center;
 }
+
+.font-weight-bold {
+  font-weight: bold;
+}

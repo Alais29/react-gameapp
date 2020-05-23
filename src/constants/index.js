@@ -44,6 +44,9 @@ const query_games = "games?search=";
 //Game Details
 const game_details = "games/";
 
+//Game Screenshots
+const game_screenshots = "/screenshots";
+
 //Genres
 const game_genres = "genres/"
 
@@ -59,6 +62,7 @@ export const upcomingGamesGet = () => `${ base_url }${ upcoming_games }`;
 export const newGamesGet = () => `${ base_url }${ new_games }`;
 export const searchGameGet = game_name => `${ base_url }${ query_games }${ game_name }`;
 export const gameDetailsGet = game_id => `${ base_url }${ game_details }${ game_id }`;
+export const gameScreenshotsGet = game_id => `${ base_url }${ game_details }${ game_id }${ game_screenshots }`;
 export const gameGenresGet = () => `${ base_url }${ game_genres }`;
 export const specificGenreGet = genre_name => `${ base_url }${ game_genres }${genre_name}`;
 export const gamePlatformsGet = () => `${ base_url }${ game_platforms }`;
