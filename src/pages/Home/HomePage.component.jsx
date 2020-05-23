@@ -1,10 +1,11 @@
 import React, { Fragment, useContext } from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import { GamesContext } from "./../../context/GamesContext";
-import GamesTop from "./../../components/Games/GamesTop/GamesTop.component";
-import ProgressBar from './../../components/Common/ProgressBar/ProgressBar.component';
+import Grid from "@material-ui/core/Grid";
+import SearchBar from "./../../components/Games/SearchBar/SearchBar.component";
+import ListOfGames from "./../../components/Games/ListsOfGames/ListsOfGames.component";
+import SearchedGames from "./../../components/Games/SearchedGames/SearchedGames.component";
 import "./HomePage.styles.scss";
+import ProgressBar from "../../components/Common/ProgressBar/ProgressBar.component";
 
 const HomePage = () => {
   const {
@@ -12,47 +13,32 @@ const HomePage = () => {
     doneFetchUpcomingGames,
     doneFetchNewGames,
     doneFetchSearchedGames,
-    doneFetchGameDetails,
     popularGames,
     upcomingGames,
     newGames,
     searchedGames,
-    gameDetails,
+    validateQGame,
   } = useContext(GamesContext);
   return (
     <Fragment>
       <h1>Home</h1>
+      <SearchBar validateQGame={validateQGame} />
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6} lg={4}>
-          <h3>Popular Games</h3>
-          <Paper elevation={3} className="games-container">
-            {doneFetchPopularGames ? (
-              <GamesTop games={popularGames} />
-            ) : (
-              <ProgressBar />
-            )}
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <h3>Upcoming Games</h3>
-          <Paper elevation={3} className="games-container">
-            {doneFetchUpcomingGames ? (
-              <GamesTop games={upcomingGames} />
-            ) : (
-              <ProgressBar />
-            )}
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <h3>New Games</h3>
-          <Paper elevation={3} className="games-container">
-            {doneFetchNewGames ? (
-              <GamesTop games={newGames} />
-            ) : (
-              <ProgressBar />
-            )}
-          </Paper>
-        </Grid>
+        {!doneFetchSearchedGames ? (
+          doneFetchPopularGames &&
+          doneFetchUpcomingGames &&
+          doneFetchNewGames ? (
+            <ListOfGames
+              popularGames={popularGames}
+              upcomingGames={upcomingGames}
+              newGames={newGames}
+            />
+          ) : (
+            <ProgressBar />
+          )
+        ) : (
+          <SearchedGames searchedGames={searchedGames} />
+        )}
       </Grid>
     </Fragment>
   );

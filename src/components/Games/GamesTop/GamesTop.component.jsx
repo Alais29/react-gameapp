@@ -10,11 +10,13 @@ const GamesTop = ({ games }) => {
     <Fragment>
       {games.map((game) => {
         const {id, background_image, name, released, parent_platforms} = game;
+        const imgSrc = background_image ? background_image : require('./../../../assets/images/placeholder.png');
         return (
           <Card variant="outlined" key={id} className="card">
+            
             <CardMedia
               className="card-game-image"
-              image={background_image}
+              image={imgSrc}
               title={name}
             />
             <CardContent className="card-game-content">
@@ -25,9 +27,12 @@ const GamesTop = ({ games }) => {
                 <p className="card-game-released text-white">{released}</p>
               </div>
               <ul className="card-game-platforms">
-                {parent_platforms.map(platform => (
-                  <li key={platform.platform.id} className="card-game-platform"><img src={require(`./../../../assets/images/${platform.platform.id}.svg`)} alt={platform.platform.name} className="platform-logo" /></li>
-                ))}
+                {parent_platforms && parent_platforms.map(platform => {
+                  const {id, name} = platform.platform
+                  return (
+                    <li key={id} className="card-game-platform"><img src={require(`./../../../assets/images/${id}.svg`)} alt={name} className="platform-logo" /></li>
+                  )
+                })}
               </ul>
             </CardContent>
           </Card>
