@@ -19,3 +19,12 @@ body {
 .font-weight-bold {
   font-weight: bold;
 }
+
+.btn-primary {
+  background-color: #8b0000!important;
+  color: white!important;
+}
+
+.btn-primary:hover {
+  background-color: #680303!important;
+}

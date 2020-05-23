@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
+import parse from 'html-react-parser';
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
+import Button from '@material-ui/core/Button';
 import ProgressBar from "./../../Common/ProgressBar/ProgressBar.component";
 import "./Details.styles.scss";
 
@@ -20,6 +21,7 @@ const Details = ({
     stores,
     publishers,
     genres,
+    clip
   } = gameDetails;
   
   return (
@@ -30,6 +32,9 @@ const Details = ({
           <p className="gdetails__released">
             <span className="font-weight-bold">Release date:</span> {released}
           </p>
+          <Link to="/">
+            <Button variant="contained" className="btn-primary gdetails__back">Go back</Button>
+          </Link>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
               <h3 className="font-weight-bold gdetails__subtitle">Publisher/s</h3>
@@ -65,22 +70,27 @@ const Details = ({
             </Grid>
           </Grid>
           <h3 className="font-weight-bold gdetails__subtitle">Description</h3>
-          <div className="gdetails__description" dangerouslySetInnerHTML={{ __html: description }} />
-          {/* <p className="gdetails__description">{description}</p> */}
+          <div className="gdetails__description">
+            {parse(description)}
+          </div>
         </Grid>
         <Grid item sm={12} md={6}>
+          <video width="100%" height="350px" controls autoPlay muted>
+            <source src={clip.clip} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="screenshots-container">
-            <GridList cellHeight={200} className="screenshots-list" cols={2}>
+            <Grid container spacing={1}>
               {doneFetchGameScreenshots && gameScreenshots ? (
                 gameScreenshots.results.map((screenshot) => (
-                  <GridListTile key={screenshot.id} cols={screenshot.cols || 1}>
-                    <img src={screenshot.image} alt={name} />
-                  </GridListTile>
+                  <Grid item xs={12} sm={6} key={screenshot.id} className="screenshot-image-container">
+                    <img src={screenshot.image} alt={name} className="screenshot-image" />
+                  </Grid>
                 ))
               ) : (
                 <ProgressBar />
               )}
-            </GridList>
+            </Grid>
           </div>
         </Grid>
       </Grid>
