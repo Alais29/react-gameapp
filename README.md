@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-A videogames browser app made with the RAWG video games API, with it you can:
+A videogames browser app made with the RAWG video games API and using some icons and images from freepik and flaticons.
+
+What you can do with the app:
 
 - See a list of the top 10 most popular games, upcoming games and recent games
 - Search for a specific game using the search bar and it will show the top matches
