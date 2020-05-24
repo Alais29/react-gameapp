@@ -39,16 +39,24 @@
       margin-bottom: 0;
     }
   } 
+
+  &__video-ss-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
-.screenshot-image-container {
+.screenshot {
+  &-image-container {
   height: 200px;
-}
-
-.screenshot-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  }
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
 }
 
 .MuiRating-iconEmpty {

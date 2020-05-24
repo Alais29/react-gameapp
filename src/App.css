@@ -8,6 +8,10 @@ body {
   color: #ffffff
 }
 
+.main-container {
+  flex-grow: 1;
+}
+
 .text-white {
   color: white;
 }
@@ -18,6 +22,14 @@ body {
 
 .font-weight-bold {
   font-weight: bold;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
 }
 
 .btn-primary {

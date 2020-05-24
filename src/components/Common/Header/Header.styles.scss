@@ -1,7 +1,13 @@
-header {
-  margin-bottom: 3rem;
+.MuiAppBar-colorPrimary {
+  background-color: #1d1d1d!important;  
 }
 
-header h1 {
-  margin: 0;
+.navbar {
+  margin-bottom: 1.5rem;
+  &__title {
+    margin: 0.8rem 0;
+  }
+  &__title-link {
+    text-decoration: none;
+  }
 }

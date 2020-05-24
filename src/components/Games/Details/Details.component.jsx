@@ -3,7 +3,8 @@ import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import Rating from '@material-ui/lab/Rating';
+import Rating from "@material-ui/lab/Rating";
+import { SRLWrapper } from "simple-react-lightbox";
 import ProgressBar from "./../../Common/ProgressBar/ProgressBar.component";
 import "./Details.styles.scss";
 
@@ -97,7 +98,7 @@ const Details = ({
           <h3 className="font-weight-bold gdetails__subtitle">Description</h3>
           <div className="gdetails__description">{parse(description)}</div>
         </Grid>
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={6} className="g-dtails__video-ss-column">
           {clip ? (
             <video width="100%" height="350px" controls autoPlay muted>
               <source src={clip.clip} type="video/mp4" />
@@ -105,27 +106,52 @@ const Details = ({
             </video>
           ) : null}
           <div className="screenshots-container">
-            <Grid container spacing={1}>
-              {doneFetchGameScreenshots && gameScreenshots ? (
-                gameScreenshots.results.map((screenshot) => (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    key={screenshot.id}
-                    className="screenshot-image-container"
-                  >
-                    <img
-                      src={screenshot.image}
-                      alt={name}
-                      className="screenshot-image"
-                    />
-                  </Grid>
-                ))
-              ) : (
-                <ProgressBar />
-              )}
-            </Grid>
+            <SRLWrapper>
+              <Grid container spacing={1}>
+                {doneFetchGameScreenshots && gameScreenshots ? (
+                  gameScreenshots.results.length ? (
+                    gameScreenshots.results.map((screenshot) => (
+                      <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        key={screenshot.id}
+                        className="screenshot-image-container"
+                      >
+                        <img
+                          src={screenshot.image}
+                          alt={name}
+                          className="screenshot-image"
+                        />
+                      </Grid>
+                    ))
+                  ) : (
+                    <h2 className="text-center w-100">There are no screenshots available for this title</h2>
+                  )
+                ) : (
+                  <ProgressBar />
+                )}
+                {/* {doneFetchGameScreenshots && gameScreenshots ? (
+                  gameScreenshots.results.map((screenshot) => (
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      key={screenshot.id}
+                      className="screenshot-image-container"
+                    >
+                      <img
+                        src={screenshot.image}
+                        alt={name}
+                        className="screenshot-image"
+                      />
+                    </Grid>
+                  ))
+                ) : (
+                  <ProgressBar />
+                )} */}
+              </Grid>
+            </SRLWrapper>
           </div>
         </Grid>
       </Grid>

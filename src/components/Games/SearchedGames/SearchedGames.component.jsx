@@ -1,11 +1,13 @@
 import React from 'react'
 // import Grid from "@material-ui/core/Grid";
-import GamesTop from './../GamesTop/GamesTop.component'
+import Game from './../Game/Game.component';
+
+import './SearchedGames.styles.scss';
 
 const SearchedGames = ({searchedGames}) => {
   return ( 
     <div className="qgames-container">
-      <GamesTop games={searchedGames} />
+      <Game games={searchedGames} />
     </div>
   );
 }

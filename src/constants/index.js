@@ -60,7 +60,7 @@ const game_publishers = "publishers/?page_size=20"
 export const popularGamesGet = () => `${ base_url }${ popular_games }`;
 export const upcomingGamesGet = () => `${ base_url }${ upcoming_games }`;
 export const newGamesGet = () => `${ base_url }${ new_games }`;
-export const searchGameGet = game_name => `${ base_url }${ query_games }${ game_name }`;
+export const searchGameGet = game_name => `${ base_url }${ query_games }${ game_name }&page_size=21`;
 export const gameDetailsGet = game_id => `${ base_url }${ game_details }${ game_id }`;
 export const gameScreenshotsGet = game_id => `${ base_url }${ game_details }${ game_id }${ game_screenshots }`;
 export const gameGenresGet = () => `${ base_url }${ game_genres }`;

@@ -4,8 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import SearchBar from "./../../components/Games/SearchBar/SearchBar.component";
 import ListOfGames from "./../../components/Games/ListsOfGames/ListsOfGames.component";
 import SearchedGames from "./../../components/Games/SearchedGames/SearchedGames.component";
-import "./HomePage.styles.scss";
 import ProgressBar from "../../components/Common/ProgressBar/ProgressBar.component";
+import NotFound from "./../../components/NotFound/NotFound.component";
+import "./HomePage.styles.scss";
 
 const HomePage = () => {
   const {
@@ -21,7 +22,6 @@ const HomePage = () => {
   } = useContext(GamesContext);
   return (
     <Fragment>
-      <h1>Home</h1>
       <SearchBar validateQGame={validateQGame} />
       <Grid container spacing={3}>
         {!doneFetchSearchedGames ? (
@@ -36,8 +36,10 @@ const HomePage = () => {
           ) : (
             <ProgressBar />
           )
-        ) : (
+        ) : searchedGames.length ? (
           <SearchedGames searchedGames={searchedGames} />
+        ) : (
+          <NotFound />
         )}
       </Grid>
     </Fragment>

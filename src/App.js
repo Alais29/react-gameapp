@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import SimpleReactLightbox from "simple-react-lightbox";
 import Container from '@material-ui/core/Container';
 import GamesContextProvider from './context/GamesContext';
 import GamesDetailsContextProvider from './context/GameDetailsContext';
@@ -12,7 +13,7 @@ import "./App.css";
 const App = () => (
   <BrowserRouter>
     <Header />
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className="main-container">
       <Switch>
         <Route exact path='/'>
           <GamesContextProvider>
@@ -20,9 +21,11 @@ const App = () => (
           </GamesContextProvider>
         </Route>
         <Route path={`/games/details/:id`}>
-          <GamesDetailsContextProvider>
-            <GameDetails />
-          </GamesDetailsContextProvider>
+          <SimpleReactLightbox>
+            <GamesDetailsContextProvider>
+              <GameDetails />
+            </GamesDetailsContextProvider>
+          </SimpleReactLightbox>
         </Route>
       </Switch>
     </Container>
