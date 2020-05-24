@@ -7,6 +7,8 @@ A videogames browser app made with the RAWG video games API, with it you can:
 - Click on any game to see its details
 - On the details page you'll see info about the game, a video and some screenshots. You'll also see the online stores where you can get it, click on the store image and it will take you to the store site.
 
+You can check it out here: https://gamebrowserapp.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
