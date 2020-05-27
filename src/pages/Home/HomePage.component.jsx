@@ -5,7 +5,7 @@ import SearchBar from "./../../components/Games/SearchBar/SearchBar.component";
 import ListOfGames from "./../../components/Games/ListsOfGames/ListsOfGames.component";
 import SearchedGames from "./../../components/Games/SearchedGames/SearchedGames.component";
 import ProgressBar from "../../components/Common/ProgressBar/ProgressBar.component";
-import NotFound from "./../../components/NotFound/NotFound.component";
+import Message from "./../../components/Common/Message/Message.component";
 import "./HomePage.styles.scss";
 
 const HomePage = () => {
@@ -39,7 +39,7 @@ const HomePage = () => {
         ) : searchedGames.length ? (
           <SearchedGames searchedGames={searchedGames} />
         ) : (
-          <NotFound />
+          <Message text="No results found" />
         )}
       </Grid>
     </Fragment>

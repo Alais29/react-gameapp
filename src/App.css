@@ -32,6 +32,10 @@ body {
   height: 100%;
 }
 
+.mb-0 {
+  margin-bottom: 0;
+}
+
 .btn-primary {
   background-color: #8b0000!important;
   color: white!important;

@@ -6,6 +6,10 @@ import Button from "@material-ui/core/Button";
 import Rating from "@material-ui/lab/Rating";
 import { SRLWrapper } from "simple-react-lightbox";
 import ProgressBar from "./../../Common/ProgressBar/ProgressBar.component";
+import TextList from "../../Common/Lists/TextList.component";
+import StoresList from "../../Common/Lists/StoresList.component";
+import Subtitle from './../../Common/Subtitle/Subtitle.component';
+import Message from './../../Common/Message/Message.component';
 import "./Details.styles.scss";
 
 const Details = ({
@@ -40,62 +44,17 @@ const Details = ({
           </Link>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
-              <h3 className="font-weight-bold gdetails__subtitle">
-                Publisher/s
-              </h3>
-              <ul className="gdetails__list">
-                {publishers.map((publisher) => (
-                  <li className="gdetails__list-item" key={publisher.id}>
-                    {publisher.name}
-                  </li>
-                ))}
-              </ul>
-              <h3 className="font-weight-bold gdetails__subtitle">Genre/s</h3>
-              <ul className="gdetails__list">
-                {genres.map((genre) => (
-                  <li className="gdetails__list-item" key={genre.id}>
-                    {genre.name}
-                  </li>
-                ))}
-              </ul>
-              <h3 className="font-weight-bold gdetails__subtitle">
-                Platform/s
-              </h3>
-              <ul className="gdetails__list">
-                {platforms.map((platform) => (
-                  <li
-                    className="gdetails__list-item"
-                    key={platform.platform.id}
-                  >
-                    {platform.platform.name}
-                  </li>
-                ))}
-              </ul>
+              <TextList title="Publisher/s" items={publishers} />
+              <TextList title="Genre/s" items={genres} />
+              <TextList title="Platform/s" platforms={platforms} />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <h3 className="gdetails__buy">Get it here</h3>
-              <ul className="gdetails__list">
-                {stores.map((store) => (
-                  <li className="gdetails__list-item" key={store.id}>
-                    <a
-                      href={store.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={require(`./../../../assets/images/${store.store.slug}.png`)}
-                        alt={store.name}
-                        className="gdetails__store-logo"
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <StoresList stores={stores} />
               <h3 className="gdetails__subtitle">Rating</h3>
               <Rating name="read-only" value={rating} readOnly />
             </Grid>
           </Grid>
-          <h3 className="font-weight-bold gdetails__subtitle">Description</h3>
+          <Subtitle text="Description" />
           <div className="gdetails__description">{parse(description)}</div>
         </Grid>
         <Grid item sm={12} md={6} className="g-dtails__video-ss-column">
@@ -126,30 +85,11 @@ const Details = ({
                       </Grid>
                     ))
                   ) : (
-                    <h2 className="text-center w-100">There are no screenshots available for this title</h2>
+                    <Message text="There are no screenshots available for this title" />
                   )
                 ) : (
                   <ProgressBar />
                 )}
-                {/* {doneFetchGameScreenshots && gameScreenshots ? (
-                  gameScreenshots.results.map((screenshot) => (
-                    <Grid
-                      item
-                      xs={12}
-                      sm={6}
-                      key={screenshot.id}
-                      className="screenshot-image-container"
-                    >
-                      <img
-                        src={screenshot.image}
-                        alt={name}
-                        className="screenshot-image"
-                      />
-                    </Grid>
-                  ))
-                ) : (
-                  <ProgressBar />
-                )} */}
               </Grid>
             </SRLWrapper>
           </div>
