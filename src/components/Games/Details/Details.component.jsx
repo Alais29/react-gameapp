@@ -5,11 +5,10 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Rating from "@material-ui/lab/Rating";
 import { SRLWrapper } from "simple-react-lightbox";
-import ProgressBar from "./../../Common/ProgressBar/ProgressBar.component";
 import TextList from "../../Common/Lists/TextList.component";
 import StoresList from "../../Common/Lists/StoresList.component";
-import Subtitle from './../../Common/Subtitle/Subtitle.component';
-import Message from './../../Common/Message/Message.component';
+import Subtitle from "./../../Common/Subtitle/Subtitle.component";
+import Screenshots from "./../Screenshots/Screenshots.component";
 import "./Details.styles.scss";
 
 const Details = ({
@@ -50,49 +49,28 @@ const Details = ({
             </Grid>
             <Grid item xs={12} sm={6}>
               <StoresList stores={stores} />
-              <h3 className="gdetails__subtitle">Rating</h3>
+              <Subtitle text="Rating" />
               <Rating name="read-only" value={rating} readOnly />
             </Grid>
           </Grid>
           <Subtitle text="Description" />
           <div className="gdetails__description">{parse(description)}</div>
         </Grid>
-        <Grid item sm={12} md={6} className="g-dtails__video-ss-column">
+        <Grid item sm={12} md={6}>
           {clip ? (
             <video width="100%" height="350px" controls autoPlay muted>
               <source src={clip.clip} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           ) : null}
-          <div className="screenshots-container">
-            <SRLWrapper>
-              <Grid container spacing={1}>
-                {doneFetchGameScreenshots && gameScreenshots ? (
-                  gameScreenshots.results.length ? (
-                    gameScreenshots.results.map((screenshot) => (
-                      <Grid
-                        item
-                        xs={12}
-                        sm={6}
-                        key={screenshot.id}
-                        className="screenshot-image-container"
-                      >
-                        <img
-                          src={screenshot.image}
-                          alt={name}
-                          className="screenshot-image"
-                        />
-                      </Grid>
-                    ))
-                  ) : (
-                    <Message text="There are no screenshots available for this title" />
-                  )
-                ) : (
-                  <ProgressBar />
-                )}
-              </Grid>
-            </SRLWrapper>
-          </div>
+          <SRLWrapper>
+            <Grid container spacing={1}>
+              <Screenshots
+                doneFetchScreenshots={doneFetchGameScreenshots}
+                screenshots={gameScreenshots}
+              />
+            </Grid>
+          </SRLWrapper>
         </Grid>
       </Grid>
     </Fragment>

@@ -1,15 +1,3 @@
-/*
-- Most popular games
-- Upcoming games
-- New recent games
-- Query Games
-- Game details
-- Genres 
-- Platforms
-- Publishers
-- Maybe get links to games examples on the alst 3 (genre, platforms, publishers) which will then get you to the game detail
-*/
-
 //Base URL
 const base_url = "https://api.rawg.io/api/";
 
@@ -48,10 +36,10 @@ const game_details = "games/";
 const game_screenshots = "/screenshots";
 
 //Genres
-const game_genres = "genres/"
+const game_genres = "genres"
 
 //Platforms
-const game_platforms = "platforms/"
+const game_platforms = "platforms"
 
 //Publishers
 const game_publishers = "publishers/?page_size=20"
@@ -64,7 +52,7 @@ export const searchGameGet = game_name => `${ base_url }${ query_games }${ game_
 export const gameDetailsGet = game_id => `${ base_url }${ game_details }${ game_id }`;
 export const gameScreenshotsGet = game_id => `${ base_url }${ game_details }${ game_id }${ game_screenshots }`;
 export const gameGenresGet = () => `${ base_url }${ game_genres }`;
-export const specificGenreGet = genre_name => `${ base_url }${ game_genres }${genre_name}`;
+export const specificGenreGet = genre_id => `${ base_url }${ game_genres }/${genre_id}`;
 export const gamePlatformsGet = () => `${ base_url }${ game_platforms }`;
 export const specificPlatformGet = platform_id => `${ base_url }${ game_platforms }${ platform_id }`;
 export const gamePublishersGet = () => `${ base_url }${ game_publishers }`;

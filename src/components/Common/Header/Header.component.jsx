@@ -12,6 +12,9 @@ const Header = () => (
           Videogames Browser
         </h1>
       </Link>
+      <Link to="/genres">
+        Genres
+      </Link>
     </Toolbar>
   </AppBar>
 )
