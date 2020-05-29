@@ -29,6 +29,15 @@ const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&pag
 //Searh Games
 const query_games = "games?search=";
 
+//Games by genre
+const genre_games = "games?genres=";
+
+//Games by platform
+const platform_games = "games?platforms=";
+
+//Games by platform
+const publisher_games = "games?publishers=";
+
 //Game Details
 const game_details = "games/";
 
@@ -42,7 +51,8 @@ const game_genres = "genres"
 const game_platforms = "platforms"
 
 //Publishers
-const game_publishers = "publishers/?page_size=20"
+const game_publishers = "publishers?page_size=50"
+const game_publishers_no_page = "publishers"
 
 //Routes
 export const popularGamesGet = () => `${ base_url }${ popular_games }`;
@@ -53,7 +63,12 @@ export const gameDetailsGet = game_id => `${ base_url }${ game_details }${ game_
 export const gameScreenshotsGet = game_id => `${ base_url }${ game_details }${ game_id }${ game_screenshots }`;
 export const gameGenresGet = () => `${ base_url }${ game_genres }`;
 export const specificGenreGet = genre_id => `${ base_url }${ game_genres }/${genre_id}`;
+export const sampleGenreGamesGet = genre_id => `${ base_url }${ genre_games }${genre_id}`;
 export const gamePlatformsGet = () => `${ base_url }${ game_platforms }`;
-export const specificPlatformGet = platform_id => `${ base_url }${ game_platforms }${ platform_id }`;
-export const gamePublishersGet = () => `${ base_url }${ game_publishers }`;
-export const specificPublisherGet = publisher_id => `${ base_url }${ game_publishers }${ publisher_id }`;
+export const specificPlatformGet = platform_id => `${ base_url }${ game_platforms }/${ platform_id }`;
+export const samplePlatformGamesGet = platform_id => `${ base_url }${ platform_games }${platform_id}`;
+export const publishersGet = () => `${ base_url }${ game_publishers }`;
+export const specificPublisherGet = publisher_id => `${ base_url }${ game_publishers_no_page }/${ publisher_id }`;
+export const samplePublisherGamesGet = publisher_id => `${ base_url }${ publisher_games }${publisher_id}`;
+
+

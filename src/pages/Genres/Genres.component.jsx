@@ -9,7 +9,7 @@ const Genre = () => {
   return ( 
     <Fragment>
       <ul>
-        {doneFetchGenres ? 
+        {doneFetchGenres && genres? 
           genres.map(item => (
           <li key={item.id}>{item.name}
             <Link to={`/genres/${item.id}`}>Detail</Link>

@@ -15,6 +15,12 @@ const Header = () => (
       <Link to="/genres">
         Genres
       </Link>
+      <Link to="/platforms">
+        Platforms
+      </Link>
+      <Link to="/publishers">
+        Publishers
+      </Link>
     </Toolbar>
   </AppBar>
 )
