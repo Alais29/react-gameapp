@@ -6,21 +6,27 @@ import Game from "./../Game/Game.component";
 const ListOfGames = ({ popularGames, upcomingGames, newGames }) => (
   <Fragment>
     <Grid item xs={12} md={6} lg={4}>
-      <h3>Popular Games</h3>
+      <h3 className="mt-0">Popular Games</h3>
       <Paper elevation={3} className="games-container">
-        <Game games={popularGames} />
+        <Grid container spacing={2}>
+          <Game games={popularGames} listofgames />
+        </Grid>
       </Paper>
     </Grid>
     <Grid item xs={12} md={6} lg={4}>
-      <h3>Upcoming Games</h3>
+      <h3 className="mt-0">Upcoming Games</h3>
       <Paper elevation={3} className="games-container">
-        <Game games={upcomingGames} />
+        <Grid container spacing={2}>
+          <Game games={upcomingGames} listofgames />
+        </Grid>
       </Paper>
     </Grid>
     <Grid item xs={12} md={6} lg={4}>
-      <h3>New Games</h3>
+      <h3 className="mt-0">New Games</h3>
       <Paper elevation={3} className="games-container">
-        <Game games={newGames} />
+        <Grid container spacing={2}>
+          <Game games={newGames} listofgames />
+        </Grid>
       </Paper>
     </Grid>
   </Fragment>

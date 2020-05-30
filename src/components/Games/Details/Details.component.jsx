@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import parse from "html-react-parser";
-import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import Rating from "@material-ui/lab/Rating";
 import { SRLWrapper } from "simple-react-lightbox";
 import TextList from "../../Common/Lists/TextList.component";
@@ -36,16 +34,11 @@ const Details = ({
           <p className="gdetails__released">
             <span className="font-weight-bold">Release date:</span> {released}
           </p>
-          <Link to="/">
-            <Button variant="contained" className="btn-primary gdetails__back">
-              Go back
-            </Button>
-          </Link>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
               <TextList title="Publisher/s" items={publishers} />
               <TextList title="Genre/s" items={genres} />
-              <TextList title="Platform/s" platforms={platforms} />
+              <TextList title="Platform/s" platforms items={platforms} />
             </Grid>
             <Grid item xs={12} sm={6}>
               <StoresList stores={stores} />

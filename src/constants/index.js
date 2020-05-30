@@ -63,12 +63,12 @@ export const gameDetailsGet = game_id => `${ base_url }${ game_details }${ game_
 export const gameScreenshotsGet = game_id => `${ base_url }${ game_details }${ game_id }${ game_screenshots }`;
 export const gameGenresGet = () => `${ base_url }${ game_genres }`;
 export const specificGenreGet = genre_id => `${ base_url }${ game_genres }/${genre_id}`;
-export const sampleGenreGamesGet = genre_id => `${ base_url }${ genre_games }${genre_id}`;
+export const sampleGenreGamesGet = genre_id => `${ base_url }${ genre_games }${genre_id}&page_size=21`;
 export const gamePlatformsGet = () => `${ base_url }${ game_platforms }`;
 export const specificPlatformGet = platform_id => `${ base_url }${ game_platforms }/${ platform_id }`;
-export const samplePlatformGamesGet = platform_id => `${ base_url }${ platform_games }${platform_id}`;
+export const samplePlatformGamesGet = platform_id => `${ base_url }${ platform_games }${platform_id}&page_size=21`;
 export const publishersGet = () => `${ base_url }${ game_publishers }`;
 export const specificPublisherGet = publisher_id => `${ base_url }${ game_publishers_no_page }/${ publisher_id }`;
-export const samplePublisherGamesGet = publisher_id => `${ base_url }${ publisher_games }${publisher_id}`;
+export const samplePublisherGamesGet = publisher_id => `${ base_url }${ publisher_games }${publisher_id}&page_size=21`;
 
 

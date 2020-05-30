@@ -1,7 +1,7 @@
 body {
   background: #000000;
   background-image: url('assets/images/backgound-image.jpg');
-  background-image: linear-gradient(158deg, rgba(0,0,0,0.48783263305322133) 0%, rgba(0,0,0,1) 44%, rgba(0,0,0,1) 100%), url('assets/images/backgound-image.jpg');
+  background-image: linear-gradient(167deg, rgba(0,0,0,0.48783263305322133) 0%, rgba(0,0,0,1) 44%, rgba(0,0,0,1) 100%), url('assets/images/backgound-image.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,6 +34,10 @@ body {
 
 .mb-0 {
   margin-bottom: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
 }
 
 .btn-primary {

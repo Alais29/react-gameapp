@@ -39,7 +39,6 @@ const SearchBar = ({validateQGame}) => {
       margin="normal"
       variant="outlined"
       style={{width: '100%'}}
-      // onChange={e=> setValue(e.target.value)}
       onKeyPress={ e => validateQGame(e) }
     />
   );

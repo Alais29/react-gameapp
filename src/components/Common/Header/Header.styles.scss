@@ -4,10 +4,28 @@
 
 .navbar {
   margin-bottom: 1.5rem;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
   &__title {
-    margin: 0.8rem 0;
+    margin: 0.5rem 0;
+    font-weight: bold;
   }
   &__title-link {
     text-decoration: none;
+  }
+  &__item {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 0.2rem 0;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: #121212;
+    }
   }
 }

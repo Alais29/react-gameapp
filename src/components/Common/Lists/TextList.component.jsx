@@ -2,23 +2,27 @@ import React, { Fragment } from "react";
 import Subtitle from "./../Subtitle/Subtitle.component";
 import "./Lists.styles.scss";
 
-const TextList = ({ title, items, platforms }) => (
+const TextList = ({ title, items, platforms, collection }) => (
   <Fragment>
     <Subtitle text={title} />
     <ul className="list">
-      {items
-        ? items.map((item) => (
+      {items && collection
+        ? items.slice(0, 3).map((item) => (
             <li className="list__item" key={item.id}>
               {item.name}
             </li>
           ))
-        : platforms
-        ? platforms.map((item) => (
+        : items && platforms
+        ? items.map((item) => (
             <li className="list__item" key={item.platform.id}>
               {item.platform.name}
             </li>
           ))
-        : null}
+        : items.map((item) => (
+            <li className="list__item" key={item.id}>
+              {item.name}
+            </li>
+          ))}
     </ul>
   </Fragment>
 );

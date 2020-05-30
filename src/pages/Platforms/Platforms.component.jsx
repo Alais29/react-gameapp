@@ -1,22 +1,21 @@
 import React, {Fragment, useContext} from 'react';
 import {PlatformsContext} from './../../context/PlatformsContext';
-import {Link} from 'react-router-dom';
+import Grid from "@material-ui/core/Grid";
+import CollectionCard from './../../components/Collection/CollectionCard/CollectionCard.component';
 import ProgressBar from "../../components/Common/ProgressBar/ProgressBar.component";
 
 const Platforms = () => {
   const {doneFetchPlatforms, platforms} = useContext(PlatformsContext);
   return ( 
     <Fragment>
-      <ul>
-        {doneFetchPlatforms && platforms ? 
-          platforms.map(item => (
-          <li key={item.id}>{item.name}
-            <Link to={`/platforms/${item.id}`}>Detail</Link>
-          </li>
-          ))
-          : <ProgressBar /> 
-          } 
-      </ul>
+      <h1 className="text-center">Platforms</h1>
+      {
+        doneFetchPlatforms && platforms ?
+        <Grid container spacing={2}>
+          <CollectionCard link="platforms" items={platforms} />
+        </Grid>
+        : <ProgressBar />
+      }
     </Fragment>
   );
 }
