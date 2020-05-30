@@ -6,6 +6,7 @@ What you can do with the app:
 
 - See a list of the top 10 most popular games, upcoming games and recent games
 - Search for a specific game using the search bar and it will show the top matches
+- Check a list of platforms, genres, and publishers and by clicking on a platform/genre/publisher you can see its details and some games related to that platform/genre/publisher.
 - Click on any game to see its details
 - On the details page you'll see info about the game, a video and some screenshots. You'll also see the online stores where you can get it, click on the store image and it will take you to the store site.
 
