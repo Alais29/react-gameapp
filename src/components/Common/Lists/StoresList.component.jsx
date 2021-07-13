@@ -9,7 +9,7 @@ const StoreList = ({stores}) => (
       {stores.map((store) => (
         <li className="list__item" key={store.id}>
           <a
-            href={store.url}
+            href={`https://${store.store.domain}`}
             target="_blank"
             rel="noopener noreferrer"
           >

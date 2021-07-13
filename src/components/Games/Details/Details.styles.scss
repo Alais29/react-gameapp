@@ -36,3 +36,13 @@
 .MuiRating-iconEmpty {
   color: rgb(71, 71, 71)!important;
 }
+
+.SRLImage {
+  max-width: 100%!important;
+  max-height: inherit!important;
+  @media (min-width: 576px) {
+    max-width: 75%!important;
+    max-height: inherit!important;
+    width: 100%!important
+  }
+}
